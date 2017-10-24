@@ -55,6 +55,7 @@ def main():
 def save_data():
     emp_name = request.form.get('emp_name')
     emp_code = request.form.get('emp_code')
+    emp_email = request.form.get('emp_email')
     priority = request.form.get('priority')
     type = request.form.get('type')
     issue_subject = request.form.get('issue_subject')
@@ -64,6 +65,7 @@ def save_data():
     employee_form = Employee(
         emp_code=emp_code,
         emp_name=emp_name,
+        emp_email=emp_email,
         priority=priority,
         issue_subject=issue_subject,
 
@@ -83,9 +85,8 @@ def save_data():
     db.session.commit()
     utils.send_link_as_mail(
         emp_name=emp_name,
-        # emp_email=emp_email
-        rev_email=rev_email,
-        reviewer_code=reviewer_code,
+
+        Time=Time,
         emp_code=emp_code,
 
     )

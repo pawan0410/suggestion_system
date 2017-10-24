@@ -6,6 +6,7 @@ class Employee(db.Model):
     emp_name = db.Column(db.String(255))
 
     emp_code = db.Column(db.String(255))
+    emp_email = db.Column(db.String(255))
 
     priority = db.Column(db.String(255))
 
