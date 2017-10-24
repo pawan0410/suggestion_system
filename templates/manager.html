@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Email02</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+
+    <script src="/static/signature.js"></script>
+
+
+
+    <style>
+        body{
+            line-height: 1.5em;
+            width: 96%;
+            margin: 0 auto;
+        }
+        .signature_area table{
+            height:120px;
+        }
+        p{
+            text-align:justify;
+        }
+        .footer_button{
+            margin: 20px;
+            padding: 10px;
+            border-top: 1px solid;
+
+        }
+    </style>
+
+
+  <style>
+
+
+
+        body{
+            line-height: 1.5em;
+            width: 96%;
+            margin: 0 auto;
+        }
+        .signature_area table{
+            height:120px;
+        }
+        p{
+            text-align:justify;
+        }
+
+
+
+		.main-wrap{
+			width: 1000px;
+			margin: 0 auto;
+			background-color: #f7fafc;
+			padding: 10px;
+			border: solid 1px #dbeaf2;
+		}
+		h1{
+
+			font-size: 25px;
+			color: #0d374c;
+			text-align: center;
+			background-color: #dbeaf2;
+			border-radius:4px;
+			padding:10px 7px;
+			margin: 0px;
+			;
+		}
+
+		h2{
+
+			font-size: 20px;
+			color: #0e5478;
+			background: #EAF0F3;
+			border: solid 1px #D7E4EC;
+			padding:10px 7px;
+			margin: 0px;
+			text-align: left;
+		}
+
+
+	  .heading{
+		  	font-size: 20px;
+			color: #0e5478;
+			background: #EAF0F3;
+			border: solid 1px #D7E4EC;
+			padding:10px 7px;
+			margin: 0px;
+			text-align: left;
+
+	  }
+
+
+	  .heading table tr td{
+
+		  border: none;
+	  }
+
+
+		p{
+			  font-family: Cambria, "Hoefler Text", "Liberation Serif", Times, "Times New Roman", "serif";
+		      font-size: 13px;
+			  line-height: 22px;
+
+		}
+		li{
+			  font-family:"Georgia",  Arial, "sans-serif"
+			  line-height: 22px;
+			  color: #0e5478;
+		}
+
+		input[type='text']
+			{
+			border: solid 1px #aed3e6;
+			padding: 4px;
+		}
+
+
+		.signature_area{
+			background-color: #dbeaf2;
+			padding: 10px;
+			border-radius:6px;
+
+		}
+
+		.box-bg{
+			background-color: #dbeaf2;
+			padding: 10px;
+			border-radius:6px;
+			width: 100%;
+
+		}
+
+		.button {
+		background-color: #08a6f8;
+		border-radius:6px;
+		border: none;
+		color: white;
+		padding: 5px 25px;
+		text-align: center;
+		text-decoration: none;
+		display: inline-block;
+		font-size: 16px;
+
+		cursor: pointer;
+		float: right;
+}
+
+
+	  table{
+
+		  border-collapse: collapse;
+
+	  }
+
+	  tr th{
+
+		  background: #F3F3F3;
+		  border: solid 1px #B3B0B0;
+		 color: #4E4D4D;
+		  width: 100%;
+		  border-collapse: collapse;
+			font-family: Cambria, "Hoefler Text", "Liberation Serif", Times, "Times New Roman", "serif";
+		   font-size: 13px;
+		   line-height: 1.4;
+		  font: normal;
+		  text-align: left;
+
+	  }
+
+	  tr th small{
+
+		  font-size: 12px;
+		  text-align: left;
+	  }
+
+	  td{
+
+		   border: solid 1px #E5E8E9;
+		    font-family: Cambria, "Hoefler Text", "Liberation Serif", Times, "Times New Roman", "serif";
+		   font-size: 14px;
+		   line-height: 1.4;
+		  text-align: left;
+
+
+	  }
+
+	  .footer_buttom{
+
+		  background: #EAF0F3;
+
+		  padding: 10px;
+	  }
+
+
+	  .coll{
+
+		  float:left;
+		  width: 25%;
+		  font-size: 14px;
+	  }
+
+	  .coll strong{
+
+		 padding-left: 10px;
+	  }
+
+	   .coll-2 strong{
+
+		 padding-left: 10px;
+	  }
+
+
+	   .coll-2{
+
+		  float:left;
+		  width: 50%;
+		  font-size: 14px;
+	  }
+
+    </style>
+
+
+
+</head>
+<body onload="getLocation()">
+<div class="main-wrap" >
+<form method="post" action="/employee" id="frm">
+    <input type="hidden" id="location" name="location">
+    <input type="hidden" id="signature" name="signature">
+
+
+	<div class="heading">
+		<table width="100%" border="1">
+  <tbody>
+    <form>
+ <fieldset>
+  <legend>Details:</legend>
+
+  <div class="coll">From:<strong> Ashish Gupta</strong></div> <div class="coll"> Date Sent:<strong> 10/12/2017</strong></div>
+
+  <div class="coll"> Start Date:<strong> 10/12/2017</strong></div> <div class="coll"> Priority:<strong> Normal</strong></div>
+
+  <div class="coll">To:<strong> Ashish Gupta</strong></div> <div class="coll"> Time Sent:<strong> 11:15 PM</strong></div>
+
+  <div class="coll-2">Attached To:<strong> Chart Summary for Warnock, Michael</strong></div>
+ <div class="coll-2"> Subject:<strong> User Submitted Chart Prep Issue</strong></div>
+
+ </fieldset>
+</form>
+  </tbody>
+</table>
+
+
+    </div>
+
+    <div class="employee">
+    <table width="100%" cellspacing="0" cellpadding="0">
+
+        <tbody>
+        <tr>
+         <td><textarea rows="15" cols="139%" name="self_assessment1_comment1" id="self_assessment1_comment1"
+                       placeholder="Write self-assessment comments"></textarea></td>
+
+        </tr>
+
+
+
+        </tbody>
+
+    </table>
+    </div>
+
+
+
+
+
+<div class="footer_buttom">
+    <table cellspacing="3" cellpadding="3">
+
+        <tr style="border: none;">
+
+
+            <td style="border: none;">  <button style="float: right" class="button" type="submit" id="submit">Sent</button></div>   </td>
+
+
+
+         </tr>
+    </table>
+
+
+</form>
+</div>
+<script>
+        function showPosition(position) {
+            //x.innerHTML = "Latitude: " + position.coords.latitude +
+            //"<br>Longitude: " + position.coords.longitude;
+
+
+             var xhttp = new XMLHttpRequest();
+             xhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                 response = JSON.parse(this.responseText);
+                 document.getElementById('location').value = response.results[0].formatted_address;
+                }
+              };
+              xhttp.open("GET", 'http://maps.googleapis.com/maps/api/geocode/json?latlng='+position.coords.latitude+', '+position.coords.longitude+'+&sensor=true', true);
+              xhttp.send();
+
+
+         }
+
+        function getLocation() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(showPosition);
+            } else {
+                x.innerHTML = "Geolocation is not supported by this browser.";
+            }
+        }
+        function save(){
+
+			var date = document.querySelector('[name=date]').value;
+            job_function = document.querySelector('[name=job_function]').value;
+			var emp_email = document.querySelector('[name=emp_email]').value;
+			var reviewer_email = document.querySelector('[name=reviewer_email]').value;
+
+			var emp_name = document.querySelector('[name=emp_name]').value;
+			var emp_code = document.querySelector('[name=emp_code]').value;
+			var reviewer_code = document.querySelector('[name=reviewer_code]').value;
+			var reviewer_name = document.querySelector('[name=reviewer_name]').value;
+
+
+			var self_assessment1 = document.querySelector('[name=self_assessment1]').value;
+			var self_assessment1_comment1 = document.querySelector('[name=self_assessment1_comment1]').value;
+
+			var self_assessment2 = document.querySelector('[name=self_assessment2]').value;
+			var self_assessment2_comment2 = document.querySelector('[name=self_assessment2_comment2]').value;
+
+			var self_assessment3 = document.querySelector('[name=self_assessment3]').value;
+			var self_assessment3_comment3 = document.querySelector('[name=self_assessment3_comment3]').value;
+
+			var self_assessment4 = document.querySelector('[name=self_assessment4]').value;
+			var self_assessment4_comment4 = document.querySelector('[name=self_assessment4_comment4]').value;
+
+			var self_assessment5 = document.querySelector('[name=self_assessment5]').value;
+			var self_assessment5_comment5 = document.querySelector('[name=self_assessment5_comment5]').value;
+
+			var self_assessment6 = document.querySelector('[name=self_assessment6]').value;
+			var self_assessment6_comment6 = document.querySelector('[name=self_assessment6_comment6]').value;
+
+			document.getElementById('signature').value = signature;
+
+
+			if ( (date == '') ||
+			  (job_function == '') || (emp_email == '')||(reviewer_email == '') ||(emp_code == '') ||(reviewer_code == '')
+			 || (emp_name == '') || (reviewer_name == '') || (self_assessment1 == '') || (self_assessment2 == '') || (self_assessment3 == '')
+			 || (self_assessment4 == '') || (self_assessment5 == '') || (self_assessment6 == '') || (self_assessment1_comment1 == '')
+			 || (self_assessment2_comment2 == '')
+			 || (self_assessment3_comment3 == '') || (self_assessment4_comment4 == '') || (self_assessment5_comment5 == '')
+			 || (self_assessment6_comment6 == '')){
+			    alert('All fields are mandatory!!');
+			    return false;
+			}
+
+
+			return true;
+
+
+        }
+        function dosubmit(e){
+             if( confirm('By Submitting this form you agree that the information shared by you is correct and up-to-date ? ') ){
+                save();
+             }
+
+             return false;
+        }
+       document.getElementById('frm').addEventListener('submit', dosubmit);
+    </script>
+</body>
+</html>

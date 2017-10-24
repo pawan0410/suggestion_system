@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Email</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+
+
+
+
+
+    <style>
+        body{
+            line-height: 1.5em;
+            width: 96%;
+            margin: 0 auto;
+        }
+        .signature_area table{
+            height:120px;
+        }
+        p{
+            text-align:justify;
+        }
+        .footer_button{
+            margin: 20px;
+            padding: 10px;
+            border-top: 1px solid;
+
+        }
+    </style>
+
+
+  <style>
+
+
+
+        body{
+            line-height: 1.5em;
+            width: 96%;
+            margin: 0 auto;
+        }
+        .signature_area table{
+            height:120px;
+        }
+        p{
+            text-align:justify;
+        }
+
+
+
+		.main-wrap{
+			width: 1000px;
+			margin: 0 auto;
+			background-color: #f7fafc;
+			padding: 10px;
+			border: solid 1px #dbeaf2;
+		}
+		h1{
+
+			font-size: 25px;
+			color: #0d374c;
+			text-align: center;
+			background-color: #dbeaf2;
+			border-radius:4px;
+			padding:10px 7px;
+			margin: 0px;
+			;
+		}
+
+		h2{
+
+			font-size: 20px;
+			color: #0e5478;
+			background: #EAF0F3;
+			border: solid 1px #D7E4EC;
+			padding:10px 7px;
+			margin: 0px;
+			text-align: left;
+		}
+
+
+	  .heading{
+		  	font-size: 20px;
+			color: #0e5478;
+			background: #EAF0F3;
+			border: solid 1px #D7E4EC;
+			padding:10px 7px;
+			margin: 0px;
+			text-align: left;
+
+	  }
+	  	  strong{
+
+		  margin-bottom:25px;
+	  }
+
+	  .heading table tr td{
+
+		 line-height: 25px;
+		  border-color: #EAF0F3;
+	  }
+
+
+		p{
+			  font-family: Cambria, "Hoefler Text", "Liberation Serif", Times, "Times New Roman", "serif";
+		      font-size: 13px;
+			  line-height: 22px;
+
+		}
+		li{
+			  font-family:"Georgia",  Arial, "sans-serif"
+			  line-height: 22px;
+			  color: #0e5478;
+		}
+
+		input[type='radio']
+			{
+
+			margin-top: 0px;
+		}
+
+
+		.signature_area{
+			background-color: #dbeaf2;
+			padding: 10px;
+			border-radius:6px;
+
+		}
+
+		.box-bg{
+			background-color: #dbeaf2;
+			padding: 10px;
+			border-radius:6px;
+			width: 100%;
+
+		}
+
+		.button {
+		background-color: #08a6f8;
+		border-radius:6px;
+		border: none;
+		color: white;
+		padding: 5px 25px;
+		text-align: center;
+		text-decoration: none;
+		display: inline-block;
+		font-size: 16px;
+
+		cursor: pointer;
+		float: right;
+}
+
+
+	  table{
+
+		  border-collapse: collapse;
+
+	  }
+
+	  tr th{
+
+		  background: #F3F3F3;
+		  border: solid 1px #B3B0B0;
+		 color: #4E4D4D;
+		  width: 100%;
+		  border-collapse: collapse;
+			font-family: Cambria, "Hoefler Text", "Liberation Serif", Times, "Times New Roman", "serif";
+		   font-size: 13px;
+		   line-height: 1.4;
+		  font: normal;
+		  text-align: left;
+
+	  }
+
+	  tr th small{
+
+		  font-size: 12px;
+		  text-align: left;
+	  }
+
+
+
+	  td{
+
+		   border: solid 1px #E5E8E9;
+		    font-family: Cambria, "Hoefler Text", "Liberation Serif", Times, "Times New Roman", "serif";
+		   font-size: 14px;
+		   line-height: 1.4;
+		  text-align: left;
+
+
+	  }
+
+	  .footer_buttom{
+
+		  background: #EAF0F3;
+
+		  padding: 10px;
+	  }
+
+       .top-hed{
+
+    padding:5px;
+      margin: 0px;
+
+      }
+
+      .logo{
+
+      float:left;
+      }
+
+      .top-tight{float:right;
+      margin-top: 10px;
+      color: #0e5478;
+      }
+      .clr{
+      clear:both;
+      }
+
+       label{
+      margin:0 10px 0 10px;
+      }
+
+    </style>
+
+
+
+</head>
+<body onload="getLocation()">
+<div class="main-wrap" >
+<form method="post" action="/employee" id="frm">
+    <input type="hidden" id="location" name="location">
+    <div class="top-hed">
+  <div class="logo"><img src="img/aig-logo.png"></div>
+  <div class="top-tight">
+  <label> Emp Name </label> <input type="text" name="emp_name" size="10%">
+  <label> Emp Name </label> <input type="text" name="emp_code" size="10%">
+  <label> Priority </label> <input type="text" name="priority" size="10%">
+
+  </div>
+  <div class="clr"></div>
+ </div>
+
+
+
+	<div class="heading">
+		<table width="100%" border="1">
+  <tbody>
+
+
+    <tr>
+      <td><strong>TYPE:</strong></td>
+      <td><input type="radio" name="type" value="Demos" > Demos</td>
+      <td><input type="radio" name="type" value="Charges" > Charges</td>
+      <td><input type="radio" name="type" value="EDI"> EDI</td>
+      <td><input type="radio" name="type" value="Payments"> Payments</td>
+      <td><input type="radio" name="type" value="Denials"> Denials</td>
+      <td><input type="radio" name="type" value="Aging"> Aging </td>
+      <td><input type="radio" name="type" value="IT"> IT</td>
+      <td><input type="radio" name="type" value="Others"> Others </td>
+    </tr>
+  </tbody>
+</table>
+
+
+    </div>
+
+    <div class="employee">
+    <table width="100%" cellspacing="0" cellpadding="0">
+
+        <tbody>
+        <tr>
+         <td><textarea rows="15" cols="110%" name="issue_subject" id="issue_subject"
+                       ></textarea></td>
+
+        </tr>
+
+
+
+        </tbody>
+
+    </table>
+    </div>
+
+
+
+<div class="heading">
+		<table width="100%" border="1">
+            <thead>
+            <td>Suggested Solution:</td>
+            </thead>
+  <!--<tbody>-->
+
+    <!--<tr>-->
+      <!--<td><strong>TYPE:</strong></td>-->
+      <!--<td><input type="radio" name="a" value="other"> Clinical Content</td>-->
+      <!--<td><input type="radio" name="a" value="other"> Enhancement</td>-->
+      <!--<td><input type="radio" name="a" value="other"> General EMR</td>-->
+      <!--<td><input type="radio" name="a" value="other"> Scheduler</td>-->
+      <!--<td><input type="radio" name="a" value="other"> Chart Prep</td>-->
+      <!--<td><input type="radio" name="a" value="other"> MA</td>-->
+    <!--</tr>-->
+  <!--</tbody>-->
+</table>
+
+
+    </div>
+
+    <div class="employee">
+    <table width="100%" cellspacing="0" cellpadding="0">
+
+        <tbody>
+        <tr>
+         <td><textarea rows="15" cols="139%" name="suggestion" id="suggestion"
+                       ></textarea></td>
+
+        </tr>
+
+
+
+        </tbody>
+
+    </table>
+    </div>
+
+
+
+
+
+<div class="footer_buttom">
+    <table cellspacing="3" cellpadding="3">
+
+        <tr style="border: none;">
+
+
+            <td style="border: none;">  <button style="float: right" class="button" type="submit" id="submit">Sent</button>   </td>
+
+
+
+         </tr>
+    </table>
+    </div>
+
+
+</form>
+</div>
+<script>
+        function showPosition(position) {
+            //x.innerHTML = "Latitude: " + position.coords.latitude +
+            //"<br>Longitude: " + position.coords.longitude;
+
+
+             var xhttp = new XMLHttpRequest();
+             xhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                 response = JSON.parse(this.responseText);
+                 document.getElementById('location').value = response.results[0].formatted_address;
+                }
+              };
+              xhttp.open("GET", 'http://maps.googleapis.com/maps/api/geocode/json?latlng='+position.coords.latitude+', '+position.coords.longitude+'+&sensor=true', true);
+              xhttp.send();
+
+
+         }
+
+        function getLocation() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(showPosition);
+            } else {
+                x.innerHTML = "Geolocation is not supported by this browser.";
+            }
+        }
+        function save(){
+
+
+
+			var emp_name = document.querySelector('[name=emp_name]').value;
+			var emp_code = document.querySelector('[name=emp_code]').value;
+			var priority = document.querySelector('[name=reviewer_code]').value;
+
+
+
+			var type = document.querySelector('[name=type]').value;
+			var issue_subject = document.querySelector('[name=issue_subject]').value;
+
+			var suggestion = document.querySelector('[name=suggestion]').value;
+
+
+
+			if ( (emp_name == '') ||
+			  (emp_code == '') || (priority == '')||(type == '') ||(issue_subject == '') ||(suggestion == '')
+			 {
+			    alert('All fields are mandatory!!');
+			    return false;
+			}
+
+
+			return true;
+
+
+        }
+        function dosubmit(e){
+             if( confirm('By Submitting this form you agree that the information shared by you is correct and up-to-date ? ') ){
+                save();
+             }
+
+             return false;
+        }
+       document.getElementById('frm').addEventListener('submit', dosubmit);
+    </script>
+</body>
+</html>
