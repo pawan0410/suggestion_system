@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Email</title>
+    <title>Email02</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="initial-scale=1, maximum-scale=1">
 
@@ -89,21 +89,13 @@
 			text-align: left;
 
 	  }
-	  	  strong{
 
-		  margin-bottom:25px;
-	  }
 
-	  .heading table tr td{
-
-		 line-height: 25px;
-		  border-color: #EAF0F3;
-	  }
 
 
 		p{
 			  font-family: Cambria, "Hoefler Text", "Liberation Serif", Times, "Times New Roman", "serif";
-		      font-size: 13px;
+		      font-size: 14px;
 			  line-height: 22px;
 
 		}
@@ -113,10 +105,10 @@
 			  color: #0e5478;
 		}
 
-		input[type='radio']
+		input[type='text']
 			{
-
-			margin-top: 0px;
+			border: solid 1px #aed3e6;
+			padding: 4px;
 		}
 
 
@@ -178,8 +170,6 @@
 		  text-align: left;
 	  }
 
-
-
 	  td{
 
 		   border: solid 1px #E5E8E9;
@@ -198,29 +188,41 @@
 		  padding: 10px;
 	  }
 
-       .top-hed{
 
-    padding:5px;
-      margin: 0px;
+	  .coll{
 
-      }
+		  float:left;
+		  width: 25%;
+		  font-size: 14px;
+	  }
 
-      .logo{
+	  .coll strong{
 
-      float:left;
-      }
+		 padding-left: 10px;
+	  }
 
-      .top-tight{float:right;
-      margin-top: 10px;
-      color: #0e5478;
-      }
-      .clr{
-      clear:both;
-      }
+	   .coll-2 strong{
 
-       label{
-      margin:0 10px 0 10px;
-      }
+		 padding-left: 10px;
+	  }
+
+
+	   .coll-2{
+
+		  float:left;
+		  width: 50%;
+		  font-size: 14px;
+	  }
+
+
+	  .text{
+		 background:#fff;
+		  font: normal Arial, "sans-serif";
+		  padding: 5px;
+		  margin: 0px;
+		  font-size: 14px;
+		  min-height:150px;
+	  }
 
     </style>
 
@@ -231,51 +233,45 @@
 <div class="main-wrap" >
 <form method="post" action="/employee" id="frm">
     <input type="hidden" id="location" name="location">
-    <div class="top-hed">
-  <div class="logo"><img src="img/aig-logo.png"></div>
-  <div class="top-tight">
-      <label> Name </label> {{the_document.emp_name}}
-      <label> Reply </label> {{the_final_document.reply}}
-  <label> Name </label> <input type="text" name="emp_name" id="emp_name" size="10%">
-  <label> Employee Code </label> <input type="text" name="emp_code" id="emp_code" size="10%">
-  <label> Email </label> <input type="text" name="emp_email" id="emp_email" size="10%">
-  <label> Priority </label> <input type="text" name="priority" id="priority" size="10%">
-
-  </div>
-  <div class="clr"></div>
- </div>
-
+    <input type="hidden" id="signature" name="signature">
 
 
 	<div class="heading">
 		<table width="100%" border="1">
   <tbody>
+    <form>
+ <fieldset>
+  <legend>Details:</legend>
+
+  <div class="coll">From:<strong> {{the_document.emp_name}}</strong></div>
+
+   <div class="coll"> Priority:<strong> {{the_document.priority}}</strong></div>
+
+  <div class="coll">Type:<strong> {{the_document.type}}</strong></div>
 
 
-    <tr>
-      <td><strong>TYPE:</strong></td>
-      <td><input type="radio" name="type" value="Demos" > Demos</td>
-      <td><input type="radio" name="type" value="Charges" > Charges</td>
-      <td><input type="radio" name="type" value="EDI"> EDI</td>
-      <td><input type="radio" name="type" value="Payments"> Payments</td>
-      <td><input type="radio" name="type" value="Denials"> Denials</td>
-      <td><input type="radio" name="type" value="Aging"> Aging </td>
-      <td><input type="radio" name="type" value="IT"> IT</td>
-      <td><input type="radio" name="type" value="Others"> Others </td>
-    </tr>
+ <div class="coll-2"> Subject:<strong> {{the_document.issue_subject}}</strong></div>
+
+ </fieldset>
+</form>
   </tbody>
 </table>
 
 
     </div>
 
-    <div class="employee">
+<div class="footer_buttom">
+
+
+          <div class="employee">
     <table width="100%" cellspacing="0" cellpadding="0">
 
         <tbody>
         <tr>
-         <td><textarea rows="15" cols="110%" name="issue_subject" id="issue_subject"
-                       ></textarea></td>
+         <td><p>Your Suggestion</p></td>
+        </tr>
+        <tr>
+         <td><p class="text">{{the_document.suggestion}}</p></td>
 
         </tr>
 
@@ -286,64 +282,38 @@
     </table>
     </div>
 
-
-
-<div class="heading">
-		<table width="100%" border="1">
-            <thead>
-            <td>Suggested Solution:</td>
-            </thead>
-  <!--<tbody>-->
-
-    <!--<tr>-->
-      <!--<td><strong>TYPE:</strong></td>-->
-      <!--<td><input type="radio" name="a" value="other"> Clinical Content</td>-->
-      <!--<td><input type="radio" name="a" value="other"> Enhancement</td>-->
-      <!--<td><input type="radio" name="a" value="other"> General EMR</td>-->
-      <!--<td><input type="radio" name="a" value="other"> Scheduler</td>-->
-      <!--<td><input type="radio" name="a" value="other"> Chart Prep</td>-->
-      <!--<td><input type="radio" name="a" value="other"> MA</td>-->
-    <!--</tr>-->
-  <!--</tbody>-->
-</table>
-
-
     </div>
-
-    <div class="employee">
-    <table width="100%" cellspacing="0" cellpadding="0">
-
-        <tbody>
-        <tr>
-         <td><textarea rows="15" cols="139%" name="suggestion" id="suggestion"
-                       ></textarea></td>
-
-        </tr>
-
-
-
-        </tbody>
-
-    </table>
-    </div>
-
 
 
 
 
 <div class="footer_buttom">
-    <table cellspacing="3" cellpadding="3">
-
-        <tr style="border: none;">
 
 
-            <td style="border: none;">  <button style="float: right" class="button" type="submit" id="submit">Sent</button>   </td>
+          <div class="employee">
+    <table width="100%" cellspacing="0" cellpadding="0">
+
+        <tbody>
+
+        <tr>
+         <td><p>Reply</p></td>
+        </tr>
+
+        <tr>
+         <td><p class="text">{{the_final_document.reply}}</p></td>
+        </tr>
 
 
 
-         </tr>
+        </tbody>
+
     </table>
     </div>
+
+    </div>
+
+
+    </table>
 
 
 </form>
@@ -376,24 +346,45 @@
         }
         function save(){
 
-
+			var date = document.querySelector('[name=date]').value;
+            job_function = document.querySelector('[name=job_function]').value;
+			var emp_email = document.querySelector('[name=emp_email]').value;
+			var reviewer_email = document.querySelector('[name=reviewer_email]').value;
 
 			var emp_name = document.querySelector('[name=emp_name]').value;
 			var emp_code = document.querySelector('[name=emp_code]').value;
-			var priority = document.querySelector('[name=reviewer_code]').value;
+			var reviewer_code = document.querySelector('[name=reviewer_code]').value;
+			var reviewer_name = document.querySelector('[name=reviewer_name]').value;
 
 
+			var self_assessment1 = document.querySelector('[name=self_assessment1]').value;
+			var self_assessment1_comment1 = document.querySelector('[name=self_assessment1_comment1]').value;
 
-			var type = document.querySelector('[name=type]').value;
-			var issue_subject = document.querySelector('[name=issue_subject]').value;
+			var self_assessment2 = document.querySelector('[name=self_assessment2]').value;
+			var self_assessment2_comment2 = document.querySelector('[name=self_assessment2_comment2]').value;
 
-			var suggestion = document.querySelector('[name=suggestion]').value;
+			var self_assessment3 = document.querySelector('[name=self_assessment3]').value;
+			var self_assessment3_comment3 = document.querySelector('[name=self_assessment3_comment3]').value;
+
+			var self_assessment4 = document.querySelector('[name=self_assessment4]').value;
+			var self_assessment4_comment4 = document.querySelector('[name=self_assessment4_comment4]').value;
+
+			var self_assessment5 = document.querySelector('[name=self_assessment5]').value;
+			var self_assessment5_comment5 = document.querySelector('[name=self_assessment5_comment5]').value;
+
+			var self_assessment6 = document.querySelector('[name=self_assessment6]').value;
+			var self_assessment6_comment6 = document.querySelector('[name=self_assessment6_comment6]').value;
+
+			document.getElementById('signature').value = signature;
 
 
-
-			if ( (emp_name == '') ||
-			  (emp_code == '') || (priority == '')||(type == '') ||(issue_subject == '') ||(suggestion == '')
-			 {
+			if ( (date == '') ||
+			  (job_function == '') || (emp_email == '')||(reviewer_email == '') ||(emp_code == '') ||(reviewer_code == '')
+			 || (emp_name == '') || (reviewer_name == '') || (self_assessment1 == '') || (self_assessment2 == '') || (self_assessment3 == '')
+			 || (self_assessment4 == '') || (self_assessment5 == '') || (self_assessment6 == '') || (self_assessment1_comment1 == '')
+			 || (self_assessment2_comment2 == '')
+			 || (self_assessment3_comment3 == '') || (self_assessment4_comment4 == '') || (self_assessment5_comment5 == '')
+			 || (self_assessment6_comment6 == '')){
 			    alert('All fields are mandatory!!');
 			    return false;
 			}

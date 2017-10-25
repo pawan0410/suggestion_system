@@ -19,9 +19,9 @@ UPLOAD_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'uploads')
 def send_link_as_mail(**kwargs):
     subject = 'Suggestion Form - {}'.format(kwargs['emp_name'])
 
-    msg = Message(subject, sender='suggestionsbox20@gmail.com', recipients=['pkaur@aigbusiness.com', 'atulmishra.one@gmail.com', 'suggestionsbox20@gmail.com'])
+    msg = Message(subject, sender='pkaur@aigbusiness.com', recipients=['pkaur@aigbusiness.com'])
 
-    msg.html = """Please click on the link below to sign your probation status form.<br>
+    msg.html = """Please click on the link below to see a suggestion.<br>
     <a href="http://{0}/suggestion/{1}">Click here</a>
     """.format(request.host,kwargs['emp_code'])
 
@@ -31,7 +31,7 @@ def send_link_as_mail(**kwargs):
 def send_manager_link_as_mail(**kwargs):
     subject = 'Final Rating'
 
-    msg = Message(subject, sender='suggestionsbox20@gmail.com', recipients=[kwargs['email']])
+    msg = Message(subject, sender='pkaur@aigbusiness.com', recipients=[kwargs['email']])
 
     msg.html = """Please click on the link below :.<br>
     <a href="http://{0}/final/{1}">Click here</a>
@@ -40,13 +40,13 @@ def send_manager_link_as_mail(**kwargs):
     mail.send(msg)
 
 
-def save_document_as_docx(**kwargs):
-    document = Document()
-    style = document.styles['Normal']
-    font = style.font
-    font.size = Pt(10)
-    document.add_heading('PRD FORM')
-    document.add_paragraph('Employee Information')
+# def save_document_as_docx(**kwargs):
+#     document = Document()
+#     style = document.styles['Normal']
+#     font = style.font
+#     font.size = Pt(10)
+#     document.add_heading('PRD FORM')
+#     document.add_paragraph('Employee Information')
 
     # paragraph = document.add_paragraph("""Employee Name : %s Employee Code : %s Date :	%s.""" % (kwargs['emp_name'],kwargs['emp_code'], kwargs['date']))
     # paragraph_format = paragraph.paragraph_format
