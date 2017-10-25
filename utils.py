@@ -22,7 +22,7 @@ def send_link_as_mail(**kwargs):
     msg = Message(subject, sender='pkaur@aigbusiness.com', recipients='pkaur@aigbusiness.com')
 
     msg.html = """Please click on the link below to sign your probation status form.<br>
-    <a href="http://{0}/document/{1}/{2}">Click here</a>
+    <a href="http://{0}/suggestion/{1}/{2}">Click here</a>
     """.format(request.host,kwargs['emp_code'],kwargs['Time'])
 
     mail.send(msg)

@@ -5,7 +5,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="initial-scale=1, maximum-scale=1">
 
-    <script src="/static/signature.js"></script>
+
 
 
 
@@ -225,9 +225,9 @@
 </head>
 <body onload="getLocation()">
 <div class="main-wrap" >
-<form method="post" action="/employee" id="frm">
+<form method="post" action="/manager" id="frm">
     <input type="hidden" id="location" name="location">
-    <input type="hidden" id="signature" name="signature">
+
 
 
 	<div class="heading">
@@ -237,14 +237,15 @@
  <fieldset>
   <legend>Details:</legend>
 
-  <div class="coll">From:<strong> Ashish Gupta</strong></div> <div class="coll"> Date Sent:<strong> 10/12/2017</strong></div>
+  <div class="coll">From:<strong> {{the_document.emp_name}}</strong></div> <div class="coll">
 
-  <div class="coll"> Start Date:<strong> 10/12/2017</strong></div> <div class="coll"> Priority:<strong> Normal</strong></div>
+  </div> <div class="coll"> Priority:<strong> {{the_document.priority}}</strong></div>
 
-  <div class="coll">To:<strong> Ashish Gupta</strong></div> <div class="coll"> Time Sent:<strong> 11:15 PM</strong></div>
 
-  <div class="coll-2">Attached To:<strong> Chart Summary for Warnock, Michael</strong></div>
- <div class="coll-2"> Subject:<strong> User Submitted Chart Prep Issue</strong></div>
+
+  <div class="coll-2">Issue:<strong> {{the_document.type}} </strong></div>
+ <div class="coll-2"> Subject:<strong> {{the_document.type}}</strong></div>
+ <div class="coll-2"> Suggestion:<strong> {{the_document.suggestion}}</strong></div>
 
  </fieldset>
 </form>
