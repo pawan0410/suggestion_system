@@ -86,7 +86,7 @@ def save_data():
     utils.send_link_as_mail(
         emp_name=emp_name,
 
-        Time=Time,
+
         emp_code=emp_code,
 
     )
@@ -98,126 +98,63 @@ def success():
     return render_template('thankyou.html')
 
 
-@app.route("/suggestion/<string:emp_code>/<string:Time>")
-def document(emp_code, Time):
-    the_document = Employee.query.filter(Employee.emp_code == emp_code,
-                                         Employee.Time == Time).order_by("id desc").first()
+@app.route("/suggestion/<string:emp_code>")
+def suggestion(emp_code):
+    the_document = Employee.query.filter(Employee.emp_code == emp_code).order_by("id desc").first()
 
-    BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-    return str(BASE_DIR)
+    # BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+    # return str(BASE_DIR)
 
-    return render_template('manager.html', the_document=the_document, base_dir=BASE_DIR)
-
-
-# @app.route("/manager", methods=['POST'])
-# def save_managerdata():
-#     emp_code1 = request.form.get('emp_code1')
-#     reviewer_name1 = request.form.get('reviewer_name1')
-#     reviewer_code1 = request.form.get('reviewer_code1')
-#
-#     manager_assessment1 = request.form.get('manager_assessment1')
-#     manager_assessment1_comment1 = request.form.get('manager_assessment1_comment1')
-#     total_score1 = request.form.get('total_score1')
-#     achieved_score1 = request.form.get('achieved_score1')
-#
-#     manager_assessment2 = request.form.get('manager_assessment2')
-#     manager_assessment2_comment2 = request.form.get('manager_assessment2_comment2')
-#     total_score2 = request.form.get('total_score2')
-#     achieved_score2 = request.form.get('achieved_score2')
-#
-#     manager_assessment3 = request.form.get('manager_assessment3')
-#     manager_assessment3_comment3 = request.form.get('manager_assessment3_comment3')
-#     total_score3 = request.form.get('total_score3')
-#     achieved_score3 = request.form.get('achieved_score3')
-#
-#     manager_assessment4 = request.form.get('manager_assessment4')
-#     manager_assessment4_comment4 = request.form.get('manager_assessment4_comment4')
-#     total_score4 = request.form.get('total_score4')
-#     achieved_score4 = request.form.get('achieved_score4')
-#
-#     manager_assessment5 = request.form.get('manager_assessment5')
-#     manager_assessment5_comment5 = request.form.get('manager_assessment5_comment5')
-#     total_score5 = request.form.get('total_score5')
-#     achieved_score5 = request.form.get('achieved_score5')
-#
-#     manager_assessment6 = request.form.get('manager_assessment6')
-#     manager_assessment6_comment6 = request.form.get('manager_assessment6_comment6')
-#     total_score6 = request.form.get('total_score6')
-#     achieved_score6 = request.form.get('achieved_score6')
-#
-#     rev_email1 = request.form.get('rev_email1')
-#
-#     signature = save_signature(request.form.get('signature'), 'reviewer_name1', 'signature')
-#
-#     manager_form = Manager(
-#
-#         emp_code1=emp_code1,
-#         reviewer_name1=reviewer_name1,
-#         reviewer_code1=reviewer_code1,
-#         manager_assessment1=manager_assessment1,
-#         manager_assessment1_comment1=manager_assessment1_comment1,
-#         total_score1=total_score1,
-#         achieved_score1=achieved_score1,
-#
-#         manager_assessment2=manager_assessment2,
-#         manager_assessment2_comment2=manager_assessment2_comment2,
-#         total_score2=total_score2,
-#         achieved_score2=achieved_score2,
-#
-#         manager_assessment3=manager_assessment3,
-#         manager_assessment3_comment3=manager_assessment3_comment3,
-#         total_score3=total_score3,
-#         achieved_score3=achieved_score3,
-#
-#         manager_assessment4=manager_assessment4,
-#         manager_assessment4_comment4=manager_assessment4_comment4,
-#         total_score4=total_score4,
-#         achieved_score4=achieved_score4,
-#
-#         manager_assessment5=manager_assessment5,
-#         manager_assessment5_comment5=manager_assessment5_comment5,
-#         total_score5=total_score5,
-#         achieved_score5=achieved_score5,
-#
-#         manager_assessment6=manager_assessment6,
-#         manager_assessment6_comment6=manager_assessment6_comment6,
-#         total_score6=total_score6,
-#         achieved_score6=achieved_score6,
-#
-#         signaturepath=signature,
-#
-#         IP_addr=request.remote_addr,
-#         Location=request.form.get('location'),
-#         UserAgent=request.user_agent.browser,
-#         OperatingSystem=request.user_agent.platform,
-#         Time=datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
-#
-#     )
-#
-#     db.session.add(manager_form)
-#     db.session.commit()
-#     utils.send_manager_link_as_mail(
-#
-#         rev_email1=rev_email1,
-#         reviewer_code1=reviewer_code1,
-#         emp_code1=emp_code1,
-#
-#     )
-#     return redirect('/success')
+    return render_template('manager.html', the_document=the_document)
 
 
-# @app.route("/final_form/<string:emp_code1>/<string:reviewer_code1>")
-# def final_document(emp_code1, reviewer_code1):
-#     the_final_document = Manager.query.filter(Manager.emp_code1 == emp_code1,
-#                                               Manager.reviewer_code1 == reviewer_code1).order_by("id desc").first()
-#     the_document = Employee.query.filter(Employee.emp_code == emp_code1,
-#                                          Employee.reviewer_code == reviewer_code1).order_by("id desc").first()
-#
-#     BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-#     # return str(BASE_DIR)
-#
-#     return render_template('finaldocument.html', the_document=the_document, the_final_document=the_final_document,
-#                            base_dir=BASE_DIR)
+
+
+@app.route("/manager", methods=['POST'])
+def save_managerdata():
+    reply = request.form.get('reply')
+    emp_code1 = request.form.get('emp_code1')
+    email = request.form.get('email')
+
+
+    manager_form = Manager(
+
+        emp_code1=emp_code1,
+        reply=reply,
+        email = email,
+
+        IP_addr=request.remote_addr,
+        Location=request.form.get('location'),
+        UserAgent=request.user_agent.browser,
+        OperatingSystem=request.user_agent.platform,
+        Time=datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
+
+    )
+
+    db.session.add(manager_form)
+    db.session.commit()
+    utils.send_manager_link_as_mail(
+
+        email=email,
+
+        emp_code1=emp_code1,
+
+    )
+    return redirect('/success')
+
+
+@app.route("/final/<string:emp_code1>")
+def final_document(emp_code1):
+    the_final_document = Manager.query.filter(Manager.emp_code1 == emp_code1
+                                              ).order_by("id desc").first()
+    the_document = Employee.query.filter(Employee.emp_code == emp_code1
+                                         ).order_by("id desc").first()
+
+    # BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+    # return str(BASE_DIR)
+
+    return render_template('final.html', the_document=the_document, the_final_document=the_final_document
+                           )
 
 
 # @app.route("/final/<string:emp_code1>/<string:reviewer_code1>",methods=['POST'])

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Email02</title>
+    <title>Email</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="initial-scale=1, maximum-scale=1">
 
@@ -89,11 +89,15 @@
 			text-align: left;
 
 	  }
+	  	  strong{
 
+		  margin-bottom:25px;
+	  }
 
 	  .heading table tr td{
 
-		  border: none;
+		 line-height: 25px;
+		  border-color: #EAF0F3;
 	  }
 
 
@@ -109,10 +113,10 @@
 			  color: #0e5478;
 		}
 
-		input[type='text']
+		input[type='radio']
 			{
-			border: solid 1px #aed3e6;
-			padding: 4px;
+
+			margin-top: 0px;
 		}
 
 
@@ -174,6 +178,8 @@
 		  text-align: left;
 	  }
 
+
+
 	  td{
 
 		   border: solid 1px #E5E8E9;
@@ -192,31 +198,29 @@
 		  padding: 10px;
 	  }
 
+       .top-hed{
 
-	  .coll{
+    padding:5px;
+      margin: 0px;
 
-		  float:left;
-		  width: 25%;
-		  font-size: 14px;
-	  }
+      }
 
-	  .coll strong{
+      .logo{
 
-		 padding-left: 10px;
-	  }
+      float:left;
+      }
 
-	   .coll-2 strong{
+      .top-tight{float:right;
+      margin-top: 10px;
+      color: #0e5478;
+      }
+      .clr{
+      clear:both;
+      }
 
-		 padding-left: 10px;
-	  }
-
-
-	   .coll-2{
-
-		  float:left;
-		  width: 50%;
-		  font-size: 14px;
-	  }
+       label{
+      margin:0 10px 0 10px;
+      }
 
     </style>
 
@@ -225,32 +229,40 @@
 </head>
 <body onload="getLocation()">
 <div class="main-wrap" >
-<form method="post" action="/manager" id="frm">
+<form method="post" action="/employee" id="frm">
     <input type="hidden" id="location" name="location">
+    <div class="top-hed">
+  <div class="logo"><img src="img/aig-logo.png"></div>
+  <div class="top-tight">
+      <label> Name </label> {{the_document.emp_name}}
+      <label> Reply </label> {{the_final_document.reply}}
+  <label> Name </label> <input type="text" name="emp_name" id="emp_name" size="10%">
+  <label> Employee Code </label> <input type="text" name="emp_code" id="emp_code" size="10%">
+  <label> Email </label> <input type="text" name="emp_email" id="emp_email" size="10%">
+  <label> Priority </label> <input type="text" name="priority" id="priority" size="10%">
 
+  </div>
+  <div class="clr"></div>
+ </div>
 
 
 
 	<div class="heading">
 		<table width="100%" border="1">
   <tbody>
-    <form>
- <fieldset>
-  <legend>Details:</legend>
-
-  <div class="coll">From:<strong> {{the_document.emp_name}}</strong></div> <div class="coll">
-
-  </div> <div class="coll"> Priority:<strong> {{the_document.priority}}</strong></div>
 
 
-
-  <div class="coll-2">Issue:<strong> {{the_document.type}} </strong></div>
- <div class="coll-2"> Subject:<strong> {{the_document.issue_subject}}</strong></div>
- <div class="coll-2"> Suggestion:<strong> {{the_document.suggestion}}</strong></div>
-     <div class="coll-2">Employee Code:<strong> {{the_document.emp_code}} </strong></div>
-
- </fieldset>
-</form>
+    <tr>
+      <td><strong>TYPE:</strong></td>
+      <td><input type="radio" name="type" value="Demos" > Demos</td>
+      <td><input type="radio" name="type" value="Charges" > Charges</td>
+      <td><input type="radio" name="type" value="EDI"> EDI</td>
+      <td><input type="radio" name="type" value="Payments"> Payments</td>
+      <td><input type="radio" name="type" value="Denials"> Denials</td>
+      <td><input type="radio" name="type" value="Aging"> Aging </td>
+      <td><input type="radio" name="type" value="IT"> IT</td>
+      <td><input type="radio" name="type" value="Others"> Others </td>
+    </tr>
   </tbody>
 </table>
 
@@ -262,12 +274,48 @@
 
         <tbody>
         <tr>
-            <td>Enter employee code of sender of this email</td>
-         <td><input type="text" id="emp_code1" name="emp_code1"></td>
+         <td><textarea rows="15" cols="110%" name="issue_subject" id="issue_subject"
+                       ></textarea></td>
 
         </tr>
+
+
+
+        </tbody>
+
+    </table>
+    </div>
+
+
+
+<div class="heading">
+		<table width="100%" border="1">
+            <thead>
+            <td>Suggested Solution:</td>
+            </thead>
+  <!--<tbody>-->
+
+    <!--<tr>-->
+      <!--<td><strong>TYPE:</strong></td>-->
+      <!--<td><input type="radio" name="a" value="other"> Clinical Content</td>-->
+      <!--<td><input type="radio" name="a" value="other"> Enhancement</td>-->
+      <!--<td><input type="radio" name="a" value="other"> General EMR</td>-->
+      <!--<td><input type="radio" name="a" value="other"> Scheduler</td>-->
+      <!--<td><input type="radio" name="a" value="other"> Chart Prep</td>-->
+      <!--<td><input type="radio" name="a" value="other"> MA</td>-->
+    <!--</tr>-->
+  <!--</tbody>-->
+</table>
+
+
+    </div>
+
+    <div class="employee">
+    <table width="100%" cellspacing="0" cellpadding="0">
+
+        <tbody>
         <tr>
-         <td><textarea rows="15" cols="139%" name="reply" id="reply"
+         <td><textarea rows="15" cols="139%" name="suggestion" id="suggestion"
                        ></textarea></td>
 
         </tr>
@@ -285,10 +333,6 @@
 
 <div class="footer_buttom">
     <table cellspacing="3" cellpadding="3">
-        <tr>
-            <td>Send to :</td>
-            <td><input type="email" id="email" name="email"></td>
-        </tr>
 
         <tr style="border: none;">
 
@@ -332,14 +376,24 @@
         }
         function save(){
 
-			var reply = document.querySelector('[name=reply]').value;
+
+
+			var emp_name = document.querySelector('[name=emp_name]').value;
 			var emp_code = document.querySelector('[name=emp_code]').value;
-			var email = document.querySelector('[name=email]').value;
+			var priority = document.querySelector('[name=reviewer_code]').value;
 
 
 
+			var type = document.querySelector('[name=type]').value;
+			var issue_subject = document.querySelector('[name=issue_subject]').value;
 
-			if ( (reply == '') || (emp_code1 == '') || (email == '') ){
+			var suggestion = document.querySelector('[name=suggestion]').value;
+
+
+
+			if ( (emp_name == '') ||
+			  (emp_code == '') || (priority == '')||(type == '') ||(issue_subject == '') ||(suggestion == '')
+			 {
 			    alert('All fields are mandatory!!');
 			    return false;
 			}
