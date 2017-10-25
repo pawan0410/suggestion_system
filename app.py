@@ -22,8 +22,8 @@ app.config['SQLALCHEMY_POOL_RECYCLE'] = 280
 
 app.config['MAIL_SERVER'] = 'smtp.gmail.com'
 app.config['MAIL_PORT'] = 465
-app.config['MAIL_USERNAME'] = r'kmt.aigbusiness@gmail.com'
-app.config['MAIL_PASSWORD'] = r'atul123@#'
+app.config['MAIL_USERNAME'] = r'suggestionsbox20@gmail.com'
+app.config['MAIL_PASSWORD'] = r'#Pawan1#'
 app.config['MAIL_USE_TLS'] = False
 app.config['MAIL_USE_SSL'] = True
 
