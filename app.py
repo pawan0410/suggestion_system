@@ -15,7 +15,7 @@ import utils
 app = Flask(__name__)
 app.config['DEBUG'] = True
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://root:root@127.0.0.1/aig_suggestion_system'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://root:maria@aig2016@127.0.0.1/aig_suggestion_system'
 app.config['SQLALCHEMY_POOL_SIZE'] = 5
 app.config['SQLALCHEMY_POOL_TIMEOUT'] = 120
 app.config['SQLALCHEMY_POOL_RECYCLE'] = 280
