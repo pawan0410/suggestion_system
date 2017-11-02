@@ -20,10 +20,17 @@ app.config['SQLALCHEMY_POOL_SIZE'] = 5
 app.config['SQLALCHEMY_POOL_TIMEOUT'] = 120
 app.config['SQLALCHEMY_POOL_RECYCLE'] = 280
 
-app.config['MAIL_SERVER'] = 'smtp.office365.com'
+# app.config['MAIL_SERVER'] = 'smtp.office365.com'
+# app.config['MAIL_PORT'] = 587
+# app.config['MAIL_USERNAME'] = r'pkaur@aigbusiness.com'
+# app.config['MAIL_PASSWORD'] = r'#Pawan1#'
+# app.config['MAIL_USE_TLS'] = True
+# app.config['MAIL_USE_SSL'] = False
+
+app.config['MAIL_SERVER'] = 'smtp.gmail.com'
 app.config['MAIL_PORT'] = 587
-app.config['MAIL_USERNAME'] = r'pkaur@aigbusiness.com'
-app.config['MAIL_PASSWORD'] = r'#Pawan1#'
+app.config['MAIL_USERNAME'] = r'kmt.aigbusiness@gmail.com'
+app.config['MAIL_PASSWORD'] = r'atul123@#'
 app.config['MAIL_USE_TLS'] = True
 app.config['MAIL_USE_SSL'] = False
 
@@ -56,38 +63,40 @@ def save_data():
     emp_name = request.form.get('emp_name')
     emp_code = request.form.get('emp_code')
     emp_email = request.form.get('emp_email')
+    department = request.form.get('department')
     priority = request.form.get('priority')
     type = request.form.get('type')
     issue_subject = request.form.get('issue_subject')
     suggestion = request.form.get('suggestion')
 
-
     employee_form = Employee(
-        emp_code=emp_code,
+
         emp_name=emp_name,
+        emp_code=emp_code,
         emp_email=emp_email,
+        department=department,
         priority=priority,
         issue_subject=issue_subject,
-
         suggestion=suggestion,
         type=type,
-
-
         IP_addr=request.remote_addr,
         Location=request.form.get('location'),
         UserAgent=request.user_agent.browser,
         OperatingSystem=request.user_agent.platform,
         Time=datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
-
     )
+
 
     db.session.add(employee_form)
     db.session.commit()
+    #return {'id': employee_form.id, 'keyword': keyword[0:20]}, 200
     utils.send_link_as_mail(
+        emp_code=emp_code,
+        id=employee_form.id,
         emp_name=emp_name,
 
 
-        emp_code=emp_code,
+
 
     )
     return redirect('/success')
@@ -98,9 +107,9 @@ def success():
     return render_template('thankyou.html')
 
 
-@app.route("/suggestion/<string:emp_code>")
-def suggestion(emp_code):
-    the_document = Employee.query.filter(Employee.emp_code == emp_code).order_by("id desc").first()
+@app.route("/suggestion/<string:id>/<string:emp_code>")
+def suggestion(emp_code,id):
+    the_document = Employee.query.filter(Employee.emp_code == emp_code,Employee.id == id).order_by("id desc").first()
 
     # BASE_DIR = os.path.dirname(os.path.abspath(__file__))
     # return str(BASE_DIR)
@@ -109,12 +118,12 @@ def suggestion(emp_code):
 
 
 
-
 @app.route("/manager", methods=['POST'])
 def save_managerdata():
+    the_document = Employee.query.filter(Employee.emp_code == emp_code, Employee.id == id).order_by("id desc").first()
     reply = request.form.get('reply')
-    emp_code1 = request.form.get('emp_code1')
-    email = request.form.get('email')
+
+
 
 
     manager_form = Manager(
@@ -143,8 +152,8 @@ def save_managerdata():
     return redirect('/success')
 
 
-@app.route("/final/<string:emp_code1>")
-def final_document(emp_code1):
+@app.route("/final/<string:id>/<string:emp_code1>")
+def final_document(emp_code1,id):
     the_final_document = Manager.query.filter(Manager.emp_code1 == emp_code1
                                               ).order_by("id desc").first()
     the_document = Employee.query.filter(Employee.emp_code == emp_code1

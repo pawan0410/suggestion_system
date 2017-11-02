@@ -6,9 +6,6 @@
     <meta name="viewport" content="initial-scale=1, maximum-scale=1">
 
 
-
-
-
     <style>
         body{
             line-height: 1.5em;
@@ -137,7 +134,6 @@
 		text-decoration: none;
 		display: inline-block;
 		font-size: 16px;
-
 		cursor: pointer;
 		float: right;
 }
@@ -206,7 +202,6 @@
 		 padding-left: 10px;
 	  }
 
-
 	   .coll-2{
 
 		  float:left;
@@ -224,6 +219,31 @@
 		  min-height:150px;
 	  }
 
+	  .top-hed{
+
+    padding:5px;
+      margin: 0px;
+
+      }
+
+      .logo{
+
+      float:left;
+      }
+
+      .top-tight{float:right;
+      margin-top: 10px;
+      color: #0e5478;
+      }
+      .clr{
+      clear:both;
+      }
+
+       label{
+      margin:0 10px 0 10px;
+      }
+
+
     </style>
 
 
@@ -234,6 +254,14 @@
 <form method="post" action="/employee" id="frm">
     <input type="hidden" id="location" name="location">
     <input type="hidden" id="signature" name="signature">
+    <div class="top-hed">
+  <div class="logo"><img src="static/img/aig-logo.png"></div>
+  <div class="top-tight">
+
+
+  </div>
+  <div class="clr"></div>
+ </div>
 
 
 	<div class="heading">
@@ -275,16 +303,12 @@
 
         </tr>
 
-
-
         </tbody>
 
     </table>
     </div>
 
     </div>
-
-
 
 
 <div class="footer_buttom">
@@ -334,7 +358,6 @@
               xhttp.open("GET", 'http://maps.googleapis.com/maps/api/geocode/json?latlng='+position.coords.latitude+', '+position.coords.longitude+'+&sensor=true', true);
               xhttp.send();
 
-
          }
 
         function getLocation() {
@@ -355,7 +378,6 @@
 			var emp_code = document.querySelector('[name=emp_code]').value;
 			var reviewer_code = document.querySelector('[name=reviewer_code]').value;
 			var reviewer_name = document.querySelector('[name=reviewer_name]').value;
-
 
 			var self_assessment1 = document.querySelector('[name=self_assessment1]').value;
 			var self_assessment1_comment1 = document.querySelector('[name=self_assessment1_comment1]').value;
@@ -389,10 +411,7 @@
 			    return false;
 			}
 
-
 			return true;
-
-
         }
         function dosubmit(e){
              if( confirm('By Submitting this form you agree that the information shared by you is correct and up-to-date ? ') ){

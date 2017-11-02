@@ -4,9 +4,7 @@ class Manager(db.Model):
     __tablename__ = 'manager_form'
     id = db.Column(db.Integer, primary_key=True)
 
-    emp_code1 = db.Column(db.String(255))
-    email = db.Column(db.String(255))
-
+    emp_table_id = db.Column(db.String(255))
 
 
     reply = db.Column(db.String(255))
