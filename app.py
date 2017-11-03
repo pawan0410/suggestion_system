@@ -29,8 +29,8 @@ app.config['SQLALCHEMY_POOL_RECYCLE'] = 280
 
 app.config['MAIL_SERVER'] = 'smtp.gmail.com'
 app.config['MAIL_PORT'] = 587
-app.config['MAIL_USERNAME'] = r'kmt.aigbusiness@gmail.com'
-app.config['MAIL_PASSWORD'] = r'atul123@#'
+app.config['MAIL_USERNAME'] = r'info@aigbusiness.in'
+app.config['MAIL_PASSWORD'] = r'Qoro1053'
 app.config['MAIL_USE_TLS'] = True
 app.config['MAIL_USE_SSL'] = False
 
@@ -60,6 +60,7 @@ def main():
 
 @app.route("/employee", methods=['POST'])
 def save_data():
+
     emp_name = request.form.get('emp_name')
     emp_code = request.form.get('emp_code')
     emp_email = request.form.get('emp_email')
@@ -84,19 +85,16 @@ def save_data():
         UserAgent=request.user_agent.browser,
         OperatingSystem=request.user_agent.platform,
         Time=datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
-    )
 
+    )
 
     db.session.add(employee_form)
     db.session.commit()
-    #return {'id': employee_form.id, 'keyword': keyword[0:20]}, 200
+
     utils.send_link_as_mail(
         emp_code=emp_code,
         id=employee_form.id,
         emp_name=emp_name,
-
-
-
 
     )
     return redirect('/success')
@@ -119,8 +117,8 @@ def suggestion(emp_code,id):
 
 
 @app.route("/manager", methods=['POST'])
-def save_managerdata():
-    the_document = Employee.query.filter(Employee.emp_code == emp_code, Employee.id == id).order_by("id desc").first()
+def save_managerdata(id):
+    the_document = Employee.query.filter(Employee.id == id).order_by("id desc").first()
     reply = request.form.get('reply')
 
 
@@ -128,9 +126,9 @@ def save_managerdata():
 
     manager_form = Manager(
 
-        emp_code1=emp_code1,
+
         reply=reply,
-        email = email,
+        emp_table_id=the_document.id,
 
         IP_addr=request.remote_addr,
         Location=request.form.get('location'),

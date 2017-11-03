@@ -19,9 +19,6 @@ class Employee(db.Model):
     suggestion = db.Column(db.String(255))
 
 
-
-
-
     IP_addr = db.Column(db.String(255))
     Location = db.Column(db.String(255))
     UserAgent = db.Column(db.String(255))

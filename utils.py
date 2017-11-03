@@ -22,7 +22,7 @@ def send_link_as_mail(**kwargs):
 
     msg.html = """You have one new suggestion from your team member.<br
         Please click on the link below :<br>
-        <a href="http://{0}/final/{1}/{2}">Click here</a>
+        <a href="http://{0}/suggestion/{1}/{2}">Click here</a>
         """.format(request.host,kwargs['id'], kwargs['emp_code'])
 
     mail.send(msg)
