@@ -4,9 +4,10 @@ class Employee(db.Model):
     __tablename__ = 'employee_form'
     id = db.Column(db.Integer, primary_key=True)
     emp_name = db.Column(db.String(255))
-
     emp_code = db.Column(db.String(255))
     emp_email = db.Column(db.String(255))
+    department = db.Column(db.String(255))
+
 
     priority = db.Column(db.String(255))
 
@@ -16,9 +17,6 @@ class Employee(db.Model):
 
     issue_subject = db.Column(db.String(255))
     suggestion = db.Column(db.String(255))
-
-
-
 
 
     IP_addr = db.Column(db.String(255))

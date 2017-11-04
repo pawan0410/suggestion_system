@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Email</title>
+    <title>Suggestion Form</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="initial-scale=1, maximum-scale=1">
 
@@ -230,14 +230,17 @@
 <body onload="getLocation()">
 <div class="main-wrap" >
 <form method="post" action="/employee" id="frm">
+    <h1>AIG Previous Producer's Delays and Defects</h1>
     <input type="hidden" id="location" name="location">
     <div class="top-hed">
   <div class="logo"><img src="static/img/aig-logo.png"></div>
   <div class="top-tight">
   <label> Name </label> <input type="text" name="emp_name" id="emp_name" size="10%">
   <label> Employee Code </label> <input type="text" name="emp_code" id="emp_code" size="10%">
-  <label> Email </label> <input type="text" name="emp_email" id="emp_email" size="10%">
   <label> Priority </label> <input type="text" name="priority" id="priority" size="10%">
+  <label> Department </label> <input type="text" name="department" id="department" size="10%">
+  <label> Email </label> <input type="text" name="emp_email" id="emp_email" size="10%">
+
 
   </div>
   <div class="clr"></div>
@@ -378,19 +381,18 @@
 
 			var emp_name = document.querySelector('[name=emp_name]').value;
 			var emp_code = document.querySelector('[name=emp_code]').value;
-			var priority = document.querySelector('[name=reviewer_code]').value;
+			var emp_email = document.querySelector('[name=emp_email]').value;
+			var department= document.querySelector('[name=department]').value;
 
-
+			var priority = document.querySelector('[name=priority]').value;
 
 			var type = document.querySelector('[name=type]').value;
 			var issue_subject = document.querySelector('[name=issue_subject]').value;
 
 			var suggestion = document.querySelector('[name=suggestion]').value;
 
-
-
 			if ( (emp_name == '') ||
-			  (emp_code == '') || (priority == '')||(type == '') ||(issue_subject == '') ||(suggestion == '')
+			  (issue_subject == '') ||(suggestion == ''))
 			 {
 			    alert('All fields are mandatory!!');
 			    return false;
