@@ -18,7 +18,7 @@ def send_link_as_mail(**kwargs):
     subject = 'Suggestion Form - {}'.format(kwargs['emp_name'])
 
 
-    msg = Message(subject, sender='kmt.aigbusiness@gmail.com', recipients=['atulmishra.one@gmail.com'])
+    msg = Message(subject, sender='kmt.aigbusiness@gmail.com', recipients=['pkaur@aigbusiness.com'])
 
     msg.html = """You have one new suggestion from your team member.<br
         Please click on the link below :<br>
