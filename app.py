@@ -145,7 +145,7 @@ def suggestion(emp_code,id):
     the_document = Employee.query\
         .filter(Employee.emp_code == emp_code,Employee.id == id).order_by("id desc").first()
 
-    return render_template('manager.html', the_document=the_document, emp_document_id=id, emp_code=emp_code)
+    return render_template('manager.html', the_document=the_document, emp_document_id=id, emp_code=emp_code, udir=utils.UPLOAD_DIR)
 
 
 @app.route("/manager", methods=['POST'])
@@ -194,5 +194,6 @@ def final_document(id, emp_code1):
         'final.html', 
         the_document=the_document, 
         the_final_document=the_final_document,
-        emp_code=emp_code1
+        emp_code=emp_code1,
+        udir=utils.UPLOAD_DIR
         )
