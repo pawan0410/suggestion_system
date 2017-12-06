@@ -252,10 +252,11 @@
 <body onload="getLocation()">
 <div class="main-wrap" >
 <form method="post" action="/employee" id="frm">
+    <h1>AIG Previous Producer's Delays and Defects</h1>
     <input type="hidden" id="location" name="location">
     <input type="hidden" id="signature" name="signature">
     <div class="top-hed">
-  <div class="logo"><img src="static/img/aig-logo.png"></div>
+  <div class="logo"><img src="/static/img/aig-logo.png"></div>
   <div class="top-tight">
 
 
@@ -318,7 +319,12 @@
     <table width="100%" cellspacing="0" cellpadding="0">
 
         <tbody>
-
+<tr>
+    <td>
+        <a href="/view/{{the_document.image_path.replace('/home/atul/suggestion/suggestion_system/uploads/{0}_'.format(emp_code), '')}}" target="_blank">
+                View Attachment</a>
+    </td>
+</tr>
         <tr>
          <td><p>Reply</p></td>
         </tr>
@@ -327,7 +333,12 @@
          <td><p class="text">{{the_final_document.reply}}</p></td>
         </tr>
 
-
+<tr>
+    <td>
+        <a href="/view/{{the_final_document.image_path.replace('/home/atul/suggestion/suggestion_system/uploads/{0}_'.format(emp_code), '')}}" target="_blank">
+                View Attachment</a>
+    </td>
+</tr>
 
         </tbody>
 

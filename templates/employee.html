@@ -210,7 +210,8 @@
       float:left;
       }
 
-      .top-tight{float:right;
+      .top-tight{float:left;
+      padding: 10px 0px;
       margin-top: 10px;
       color: #0e5478;
       }
@@ -229,11 +230,31 @@
 </head>
 <body onload="getLocation()">
 <div class="main-wrap" >
-<form method="post" action="/employee" id="frm">
+<form enctype=multipart/form-data method="post" action="/employee" id="frm">
     <h1>AIG Previous Producer's Delays and Defects</h1>
     <input type="hidden" id="location" name="location">
+    <input type="hidden" id="escalation_label" name="escalation_label">
     <div class="top-hed">
-  <div class="logo"><img src="static/img/aig-logo.png"></div>
+  <div class="logo"><img src="/static/img/aig-logo.png"></div>
+    <div class="clr"></div>
+    <div class="heading">
+		<table width="100%" border="1">
+  <tbody>
+
+
+    <tr>
+      <td><strong>Escalation Level:</strong></td>
+      <td><input type="radio" name="escalation" value="pkaur@aigbusiness.com" > Level 1</td>
+      <td><input type="radio" name="escalation" value="rbagbai@aigbusiness.com" > Level 2</td>
+      <td><input type="radio" name="escalation" value="pkaur@aigbusiness.com"> Level 3</td>
+
+    </tr>
+  </tbody>
+</table>
+
+
+    </div>
+
   <div class="top-tight">
   <label> Name </label> <input type="text" name="emp_name" id="emp_name" size="10%">
   <label> Employee Code </label> <input type="text" name="emp_code" id="emp_code" size="10%">
@@ -244,6 +265,7 @@
 
   </div>
   <div class="clr"></div>
+
  </div>
 
 
@@ -255,7 +277,7 @@
 
     <tr>
       <td><strong>TYPE:</strong></td>
-      <td><input type="radio" name="type" value="Demos" > Demos</td>
+      <td><input type="radio" name="type" value="Demos" required > Demos</td>
       <td><input type="radio" name="type" value="Charges" > Charges</td>
       <td><input type="radio" name="type" value="EDI"> EDI</td>
       <td><input type="radio" name="type" value="Payments"> Payments</td>
@@ -263,6 +285,8 @@
       <td><input type="radio" name="type" value="Aging"> Aging </td>
       <td><input type="radio" name="type" value="IT"> IT</td>
       <td><input type="radio" name="type" value="Others"> Others </td>
+      <td><input type="radio" name="type" value="Centricity"> Centricity</td>
+      <td><input type="radio" name="type" value="Prime Clinical"> Prime Clinical </td>
     </tr>
   </tbody>
 </table>
@@ -337,7 +361,7 @@
 
         <tr style="border: none;">
 
-
+            <td style="border: none;">  <input type="file" id="upload" name="upload">Upload</input>   </td>
             <td style="border: none;">  <button style="float: right" class="button" type="submit" id="submit">Send</button>   </td>
 
 
@@ -389,7 +413,8 @@
 			var type = document.querySelector('[name=type]').value;
 			var issue_subject = document.querySelector('[name=issue_subject]').value;
 
-			var suggestion = document.querySelector('[name=suggestion]').value;
+                var suggestion = document.querySelector('[name=suggestion]').value;
+                var escalation_label = document.querySelector('[name=escalation]').textContent
 
 			if ( (emp_name == '') ||
 			  (issue_subject == '') ||(suggestion == ''))

@@ -17,7 +17,10 @@ class Employee(db.Model):
 
     issue_subject = db.Column(db.String(255))
     suggestion = db.Column(db.String(255))
+    escalation = db.Column(db.String(255))
+    escalation_label = db.Column(db.String(255))
 
+    image_path = db.Column(db.String(255))
 
     IP_addr = db.Column(db.String(255))
     Location = db.Column(db.String(255))

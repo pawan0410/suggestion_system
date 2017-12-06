@@ -6,9 +6,6 @@
     <meta name="viewport" content="initial-scale=1, maximum-scale=1">
 
 
-
-
-
     <style>
         body{
             line-height: 1.5em;
@@ -246,18 +243,16 @@
     </style>
 
 
-
 </head>
 <body onload="getLocation()">
 <div class="main-wrap" >
-<form method="post" action="/manager" id="frm">
+<form method="post" action="/manager" id="frm" enctype="multipart/form-data">
+    <h1>AIG Previous Producer's Delays and Defects</h1>
     <input type="hidden" id="location" name="location">
     <input type="hidden" name="emp_document_id" value="{{emp_document_id}}" />
 
-
-
     <div class="top-hed">
-  <div class="logo"><img src="static/img/aig-logo.png"></div>
+  <div class="logo"><img src="/static/img/aig-logo.png"></div>
   <!--<div class="top-tight">-->
   <!--<label> Name </label> <input type="text" name="emp_name" id="emp_name" size="10%">-->
   <!--<label> Employee Code </label> <input type="text" name="emp_code" id="emp_code" size="10%">-->
@@ -283,7 +278,6 @@
      <div class="coll"> Department:<strong> {{the_document.department}}</strong></div>
      <div class="coll"> Email:<strong> {{the_document.emp_email}}</strong></div>
 
-
   <div class="coll-2">Issue:<strong> {{the_document.type}} </strong></div>
  <div class="coll-2"> Subject:<strong> {{the_document.issue_subject}}</strong></div>
  <div class="coll-2"> Suggestion:<strong> {{the_document.suggestion}}</strong></div>
@@ -293,7 +287,6 @@
 </form>
   </tbody>
 </table>
-
 
     </div>
     <table width="100%">
@@ -328,21 +321,21 @@
     </div>
 
 
-
-
-
 <div class="footer_buttom">
     <table cellspacing="3" cellpadding="3">
         <tr>
+
+            <td></td>
+            <td style="background:#faebd7;">
+                <a href="/view/{{the_document.image_path.replace('/home/atul/suggestion/suggestion_system/uploads/{0}_'.format(emp_code), '')}}" target="_blank">
+                View Attachment</a></tr>
             <!--<td>Send to :</td>-->
             <!--<td><input type="email" id="email" name="email"></td>-->
+        <tr>
+                 <td style="border: none;">  <input type="file" id="upload1" name="upload1">Upload</input>   </td>
                  <td style="border: none; width: 75%;">  <button style="float: right" class="button" type="submit" id="submit">Reply</button>   </td>
 
         </tr>
-
-
-
-
 
 
 
