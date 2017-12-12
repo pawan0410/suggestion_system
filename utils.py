@@ -13,7 +13,6 @@ from flask import request
 UPLOAD_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'uploads')
 
 
-
 def send_link_as_mail(**kwargs):
     subject = 'Suggestion Form - {}'.format(kwargs['emp_name'])
 
