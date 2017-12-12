@@ -17,7 +17,7 @@ import utils
 app = Flask(__name__)
 app.config['DEBUG'] = True
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://root:maria@aig2016@127.0.0.1/aig_suggestion_system'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://root:root@127.0.0.1/aig_suggestion_system'
 app.config['SQLALCHEMY_POOL_SIZE'] = 5
 app.config['SQLALCHEMY_POOL_TIMEOUT'] = 120
 app.config['SQLALCHEMY_POOL_RECYCLE'] = 280
@@ -74,7 +74,9 @@ def save_data():
     suggestion = request.form.get('suggestion')
     escalation = request.form.get('escalation')
     escalation_label = request.form.get('escalation_label')
-    final_path = ''
+
+    # if request.files['file'].filename == '':
+    #     return 'No selected file'
 
     if 'upload' in request.files:
 
@@ -82,7 +84,8 @@ def save_data():
         final_filename = '{}_{}'.format(emp_code, filename)
         #print(os.path.join(UPLOAD_FOLDER, final_filename))
         final_path = os.path.join(UPLOAD_FOLDER, final_filename)
-
+    else :
+        pass
 
     employee_form = Employee(
 
@@ -155,7 +158,7 @@ def save_managerdata():
     reply = request.form.get('reply')
 
     final_path = ''
-    if 'upload1' in request.files:
+    if hasattr(request,"files") and 'upload1' in request.files:
 
         filename = photos.save(request.files['upload1'])
         final_filename = '{}_{}'.format(the_document.emp_code, filename)
